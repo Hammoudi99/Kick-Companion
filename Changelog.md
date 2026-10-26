@@ -4,7 +4,7 @@ All versions of this fork, newest first. The original project (Stream Companion 
 
 Each version has its own `versionCode` so a new APK installs over the previous one.
 
-## 0.9.0 (versionCode 10)
+## 0.9.0 (versionCode 10) 
 
 ### Added
 - **Live alerts.** A notification when a streamer you follow goes live; tapping it opens the stream (also when the app was closed). About every 10 minutes in the background and every 5 minutes while the app is open, with no server. Only an offline-to-live change is announced, the first look after switching it on is silent, the same streamer is not announced again within 20 minutes, and a check shows at most five separate alerts (any others are grouped into one "N more streamers are live" alert).
