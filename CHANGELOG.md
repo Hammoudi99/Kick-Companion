@@ -4,6 +4,13 @@ All versions of this fork, newest first. The original project (Stream Companion 
 
 Each version has its own `versionCode` so a new APK installs over the previous one.
 
+## 0.9.1 (versionCode 11)
+
+### Fixed
+- The About screen no longer says the app is available for TV platforms, no longer links to the original app's website, and no longer repeats the original's plan for "other streaming platforms". It now says that Kick Companion is an Android fork of Stream Companion, and an "Open Original Project" button opens the original's GitHub page.
+
+Nothing else changed from 0.9.0.
+
 ## 0.9.0 (versionCode 10)
 
 ### Added
