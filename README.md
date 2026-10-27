@@ -9,13 +9,13 @@ Kick Companion is a fork of [Stream Companion](https://github.com/raymon-io/stre
 
 > **Unofficial.** Kick Companion is not made, endorsed or sponsored by Kick or by the original author. It uses the same web endpoints that Kick's own website uses, and those can change without notice. "Kick" belongs to its owners.
 
-Current version: **0.9.0** (versionCode 10) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
+Current version: **0.9.1** (versionCode 11) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
 
 ---
 
 ## What changed from the original
 
-The original app stopped receiving updates in August 2024 (its last commit is `ad887b2`). This fork starts from that code. Everything below was added or changed since then; the [changelog](CHANGELOG.md) lists it version by version, from 0.2.0 to 0.9.0.
+The original app stopped receiving updates in August 2024 (its last commit is `ad887b2`). This fork starts from that code. Everything below was added or changed since then; the [changelog](CHANGELOG.md) lists it version by version, from 0.2.0 to 0.9.1.
 
 ### Player (live streams and videos)
 - **Quality picker** (Auto, 1080p, 720p, ...). It uses the player's own track selection, so changing quality no longer restarts the video.
@@ -115,6 +115,3 @@ assets/                 icons
 - Modified with **Claude** (Anthropic), on an Android phone with Termux and Expo.
 - Emotes come from [7TV](https://7tv.app), [BetterTTV](https://betterttv.com) and [FrankerFaceZ](https://www.frankerfacez.com).
 - Released under the **MIT licence**, the same as the original. See [LICENSE](LICENSE), which keeps the original copyright notice.
-
-
-[VirusTotal Check]:(https://www.virustotal.com/gui/file/e914cdec0855b8e1f4d5cdcc8005a74f325ac7fcd9d4cd3a6c2738e5a6b6d9d2/details)
