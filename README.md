@@ -115,3 +115,6 @@ assets/                 icons
 - Modified with **Claude** (Anthropic), on an Android phone with Termux and Expo.
 - Emotes come from [7TV](https://7tv.app), [BetterTTV](https://betterttv.com) and [FrankerFaceZ](https://www.frankerfacez.com).
 - Released under the **MIT licence**, the same as the original. See [LICENSE](LICENSE), which keeps the original copyright notice.
+
+
+[VirusTotal Check]:(https://www.virustotal.com/gui/file/e914cdec0855b8e1f4d5cdcc8005a74f325ac7fcd9d4cd3a6c2738e5a6b6d9d2/details)
