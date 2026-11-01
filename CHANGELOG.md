@@ -4,6 +4,24 @@ All versions of this fork, newest first. The original project (Stream Companion 
 
 Each version has its own `versionCode` so a new APK installs over the previous one.
 
+## 0.10.0 (versionCode 12)
+
+### Added
+- **Continue watching** on Home (Following tab): a row of up to 10 videos you started and did not finish, newest first. Each card shows the picture, the title, a progress bar and the time left ("Left off at ..." when Kick did not give the video's length). Tapping a card opens the video exactly like the Resume button does. The x takes a video off the row, and it comes back only if you watch more of it. A video counts as started after 10 seconds, and as finished when it is within 30 seconds of the end. Videos you watched before this version are picked up the first time you open that streamer's video list.
+- **Progress bars** on the pictures in a streamer's video list, for every video you started (the Saved videos screen already had them).
+- **Following order**: "Live first" (live streamers first, the one with most viewers on top, then A to Z), "A-Z", and "Added" (the order you followed them, which is how the list always worked before). The choice is remembered. The buttons appear when you follow two or more streamers.
+- **Pinned streamers**: a pin next to the name on Following cards. Pinned streamers stay at the top in every order.
+- **Live alerts > Streamers** (Settings > Notifications): choose which of the streamers you follow can alert you, with All on and All off buttons. A streamer who is switched off stays in your Following list, and switching one back on does not announce a stream that was already running.
+- **Live alerts > Quiet hours** (Settings > Notifications): choose a From and an Until hour (it can run past midnight). During those hours alerts still arrive, but without sound or vibration, on their own "Live streams (quiet hours)" notification channel. The test notification says when it was sent silently.
+- **Backup and restore** (Settings > Backup). "Back up your data" opens Android's share menu with a piece of text that holds your follows, pinned streamers, switched-off alert streamers, saved videos, where you stopped watching, the Continue watching row, recent searches and settings. "Restore from a backup" takes that text back when you paste it. Restore only adds what the phone is missing: nothing already on the phone is replaced or removed, and anything that does not look right is skipped. Close and reopen the app afterwards so everything applies.
+
+### Changed
+- Home > Following now starts in "Live first" order. Choose "Added" to get the old order back.
+
+### Not changed
+- Live alerts already showed the stream title and the game (since 0.9.0), so that part is as it was.
+- The player, chat, `plugins/`, `package.json` and the build setup are untouched, so there are no new libraries and no native changes. The new code is plain TypeScript in `kick/services/` (`SlugList`, `FollowingPrefs`, `ContinueWatching`, `LiveAlertPrefs`, `Backup`, `AppInfo`) and `kick/settings/` (`AlertStreamersModal`, `HourPicker`, `RestoreBackupModal`).
+
 ## 0.9.1 (versionCode 11)
 
 ### Fixed
