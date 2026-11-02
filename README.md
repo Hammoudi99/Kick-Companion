@@ -1,6 +1,6 @@
 Kick Companion
 An Android app for watching Kick live streams, videos and chat.
-Kick Companion is a fork of Stream Companion by Raymon (raymon-io). It keeps the original idea (a simple Kick client) and turns it into an Android-only app with a redesigned interface and themes, picture-in-picture, background audio, saved videos, a Continue watching row, live alerts for the streamers you follow, backup and restore, an update check, and a lot of fixes.
-Built with free Claude, on an Android phone.
-Every change in this fork was made with the free version of Claude, working entirely from an Android phone with Termux and Expo (EAS Build compiles the APK in Expo's cloud).
-Unofficial. Kick Companion is not made, endorsed or sponsored by Kick or by the original author. It uses the same web endpoints that Kick's own website uses, and those can change without notice. "Kick" belongs to its owners.
+Kick Companion is a fork of Stream Companion by Raymon (raymon-io). The original stopped getting updates in August 2024 (last commit ad887b2). This fork starts from that code and turns it into an Android-only app with a new look, picture-in-picture, background audio, live alerts and more.
+Built with free Claude, on an Android phone. Every change in this fork was made with the free version of Claude, working only from an Android phone with Termux and Expo. Expo's cloud (EAS Build) compiles the APK.
+Unofficial. Not made, endorsed or sponsored by Kick or by the original author. It uses the same web endpoints as Kick's own website, and those can change without notice. "Kick" belongs to its owners.
+Current version: 0.10.1 (versionCode 13) · Android only (64-bit ARM) · MIT licence · Changelog
