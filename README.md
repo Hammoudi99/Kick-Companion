@@ -8,7 +8,7 @@ Kick Companion is a fork of [Stream Companion](https://github.com/raymon-io/stre
 
 > **Unofficial.** Not made, endorsed or sponsored by Kick or by the original author. It uses the same web endpoints as Kick's own website, and those can change without notice. "Kick" belongs to its owners.
 
-Current version: **0.10.1** (versionCode 13) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
+Current version: **0.11.0** (versionCode 14) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
 
 ---
 
@@ -31,7 +31,10 @@ Current version: **0.10.1** (versionCode 13) · Android only (64-bit ARM) · MIT
 - **Following**: the streamers you follow. Order them **Live first** (default), **A-Z** or **Added**, and **pin** favourites to the top.
 - **Continue watching**: a row of videos you started but didn't finish, with a progress bar and the time left.
 - **Live**: Kick categories with viewer counts and tags. Tap one to see its live streams.
+- **Followed categories**: tap the heart on a category (in the list or on its page) to follow it. Your followed categories show in a row at the top of the list.
+- **Category list order**: **Default** (Kick's order), **Most viewers** or **A-Z**. On a category's page, **language chips** show only the streams in one language, when Kick says which language they use.
 - **Saved videos**: bookmark a video and find it later. Videos you started show a progress bar.
+- **About card** on a streamer's video page: the followers, a verified badge and, when you tap it, the bio and the links they added on Kick.
 - **Search**, with recent searches.
 - Streamer cards show a green ring when live. Tap the avatar to open the live stream, or the videos if they are offline.
 
@@ -40,9 +43,10 @@ Current version: **0.10.1** (versionCode 13) · Android only (64-bit ARM) · MIT
 - Choose which streamers can alert you, and set **quiet hours** (alerts still arrive, but without sound or vibration).
 - The phone does the checking, with no server: about every 10 minutes in the background and every 5 minutes while the app is open.
 - Settings > Notifications has a test button and a "Check now" button.
+- A **banner** at the top of Following tells you when alerts are switched off, or when Android doesn't allow notifications. It has a button that opens Settings, and you can close it.
 
 ### Backup and updates
-- **Back up your data** (Settings > Backup) turns your follows, pins, saved videos, resume spots and settings into text you can keep in Notes, an email or a chat. **Restore** adds back whatever the phone is missing and never replaces or removes anything. Restart the app afterwards.
+- **Back up your data** (Settings > Backup) turns your follows, pins, followed categories, saved videos, resume spots and settings into text you can keep in Notes, an email or a chat. **Restore** adds back whatever the phone is missing and never replaces or removes anything. Restart the app afterwards.
 - **Check for updates** (Settings > Updates) looks on GitHub for a newer version when you tap it. It never downloads or installs anything by itself.
 
 ### Look
@@ -86,6 +90,7 @@ On a phone, install Node.js in [Termux](https://termux.dev) (`pkg install nodejs
 ## Good to know
 
 - **Live alerts are best effort.** Android decides when background checks run. Battery saver, Doze and some phone makers' battery managers can delay or skip them. Setting Battery to Unrestricted helps. Force-stopping the app stops the checks until you open it again. There is no push server, so an alert is never instant.
+- **Language chips depend on Kick.** They only appear when Kick says which language the streams use, and they only filter the 20 streams loaded on that page.
 - **Kick can change its endpoints at any time.** If it does, parts of the app can stop working until it is updated.
 - **Tested on one phone.** Other phones and Android versions can behave differently. Please open an issue if something doesn't work.
 - **Your data stays on your phone.** There is no account or login. Your follows, saved videos, resume spots and settings are stored only on the phone, and a backup is text you keep wherever you choose.
@@ -98,14 +103,14 @@ On a phone, install Node.js in [Termux](https://termux.dev) (`pkg install nodejs
 - Small Expo config plugins in `plugins/` patch the generated Android project: picture-in-picture, the headphone action, background keep-alive, media volume stream, notification permission, display cutout, black window background, arm64-only packaging, and Flipper removal (needed by the `react-native-tvos` base).
 - `.npmrc` sets `legacy-peer-deps=true`. `eas.json` has a `preview` profile that makes an installable APK.
 - The original's TV navigation code is still in the project, because the player, chat and profile screens use it.
-- **Check for updates** reads the releases of this repository. Tag each release with its version, like `v0.10.1`, and attach the APK.
+- **Check for updates** reads the releases of this repository. Tag each release with its version, like `v0.11.0`, and attach the APK.
 
 ```
 App.tsx                 navigation, About screen, launch and exit handling
 theme.ts                the colour themes
 kick/                   screens: home, profile, search, settings, live and video players
 kick/services/          Kick API, chat, emotes, saved videos, Continue watching, following order and pins,
-                        live alerts, backup, update check, settings store
+                        followed categories, live alerts, backup, update check, settings store
 kick/components/        shared pieces: player settings panel, slider, launch animation
 plugins/                Expo config plugins that patch the generated Android project
 assets/                 icons
