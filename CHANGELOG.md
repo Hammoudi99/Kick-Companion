@@ -4,6 +4,24 @@ Every version of this fork, newest first. The starting point is the original app
 
 Each version has its own `versionCode`, so a new APK installs over the old one.
 
+## 0.11.0 (versionCode 14)
+
+**New**
+- **About card** on a streamer's video page: the number of followers and a verified badge. Tap it to open the bio and the links they added on Kick (Instagram, X, YouTube, Discord, TikTok, Facebook). A link only opens the network's own website.
+- **Followed categories** (Home > Category): a heart on every category, in the list and on the category's page. Your followed categories show in a row at the top of the list. You can follow up to 100, and one that Kick stops listing stays in your row.
+- **Category list order**: Default (Kick's order), Most viewers or A-Z. Your choice is remembered.
+- **Language chips** on a category's streams page: pick a language to see only those streams. Your choice is remembered.
+- **Live alerts banner** at the top of Following. It tells you when live alerts are switched off, or when Android doesn't allow notifications for the app. A button opens Settings, and the x closes it. A closed banner stays closed until the problem changes.
+- **Backup** now includes your followed categories, the category order and the language choice. Backups made with older versions still restore.
+
+**Fixed**
+- A thin bar of the page colour above the video in the live and video players, in portrait and landscape. It showed most with the Light theme.
+- An empty strip under the chat in landscape that cut the last message in half. The chat now reaches the bottom of the screen.
+
+**Good to know**
+- Language chips only appear when Kick says which language the streams use, and they only filter the 20 streams loaded on that page.
+- Playback and chat work as before. The only change in the players is the layout fix above. No new libraries and no native changes.
+
 ## 0.10.1 (versionCode 13)
 
 **New**
