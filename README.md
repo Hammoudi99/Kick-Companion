@@ -8,7 +8,7 @@ Kick Companion is a fork of [Stream Companion](https://github.com/raymon-io/stre
 
 > **Unofficial.** Not made, endorsed or sponsored by Kick or by the original author. It uses the same web endpoints as Kick's own website, and those can change without notice. "Kick" belongs to its owners.
 
-Current version: **0.11.0** (versionCode 14) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
+Current version: **0.12.0** (versionCode 15) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
 
 ---
 
@@ -16,6 +16,7 @@ Current version: **0.11.0** (versionCode 14) · Android only (64-bit ARM) · MIT
 
 ### Watching
 - **Live streams and videos**, with a quality picker (Auto, 1080p, 720p...). Changing quality doesn't restart the video.
+- **Best quality**: every stream and video starts at the highest quality it offers (1080p is the most Kick has). You can switch it off in Settings to start on Auto.
 - **Picture-in-picture** when you leave the app, with a headphone button in the window for background audio.
 - **Audio-only mode** (headphone icon in the player): the picture hides and the sound keeps playing in the background.
 - **Notification card** with the title, the streamer and play/pause. You can switch it off in Settings.
@@ -26,6 +27,7 @@ Current version: **0.11.0** (versionCode 14) · Android only (64-bit ARM) · MIT
 ### Chat
 - Live chat reconnects by itself, and shows the reason if it can't connect.
 - Emotes from 7TV, BetterTTV and FrankerFaceZ.
+- **Chat badges** (subscriber, moderator, VIP, OG, founder and more) in front of the names, in live chat and in a video's chat replay. You can switch them off in Settings.
 
 ### Browsing
 - **Following**: the streamers you follow. Order them **Live first** (default), **A-Z** or **Added**, and **pin** favourites to the top.
@@ -90,6 +92,8 @@ On a phone, install Node.js in [Termux](https://termux.dev) (`pkg install nodejs
 ## Good to know
 
 - **Live alerts are best effort.** Android decides when background checks run. Battery saver, Doze and some phone makers' battery managers can delay or skip them. Setting Battery to Unrestricted helps. Force-stopping the app stops the checks until you open it again. There is no push server, so an alert is never instant.
+- **Best quality uses more data.** It can buffer on a slow connection, and the player stops switching quality by itself until you pick Auto. Kick has no 1440p or 4K, so 1080p is the top.
+- **Badges are partly the app's own.** Badges Kick sends a picture for (the streamer's own subscriber badges, the viewer level) use that picture. For the others, the app draws a small coloured icon of its own.
 - **Language chips depend on Kick.** They only appear when Kick says which language the streams use, and they only filter the 20 streams loaded on that page.
 - **Kick can change its endpoints at any time.** If it does, parts of the app can stop working until it is updated.
 - **Tested on one phone.** Other phones and Android versions can behave differently. Please open an issue if something doesn't work.
@@ -103,15 +107,16 @@ On a phone, install Node.js in [Termux](https://termux.dev) (`pkg install nodejs
 - Small Expo config plugins in `plugins/` patch the generated Android project: picture-in-picture, the headphone action, background keep-alive, media volume stream, notification permission, display cutout, black window background, arm64-only packaging, and Flipper removal (needed by the `react-native-tvos` base).
 - `.npmrc` sets `legacy-peer-deps=true`. `eas.json` has a `preview` profile that makes an installable APK.
 - The original's TV navigation code is still in the project, because the player, chat and profile screens use it.
-- **Check for updates** reads the releases of this repository. Tag each release with its version, like `v0.11.0`, and attach the APK.
+- **Check for updates** reads the releases of this repository. Tag each release with its version, like `v0.12.0`, and attach the APK.
 
 ```
 App.tsx                 navigation, About screen, launch and exit handling
 theme.ts                the colour themes
 kick/                   screens: home, profile, search, settings, live and video players
 kick/services/          Kick API, chat, emotes, saved videos, Continue watching, following order and pins,
-                        followed categories, live alerts, backup, update check, settings store
-kick/components/        shared pieces: player settings panel, slider, launch animation
+                        followed categories, live alerts, backup, update check, settings store,
+                        best quality, chat badges
+kick/components/        shared pieces: player settings panel, slider, launch animation, chat badges
 plugins/                Expo config plugins that patch the generated Android project
 assets/                 icons
 ```
