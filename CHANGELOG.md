@@ -4,6 +4,21 @@ Every version of this fork, newest first. The starting point is the original app
 
 Each version has its own `versionCode`, so a new APK installs over the old one.
 
+## 0.12.0 (versionCode 15)
+
+**New**
+- **Best quality** (Settings > Playback). Live streams and videos now start at the highest quality they offer, and the player settings show it as selected. On Kick that is 1080p at 60 frames a second at most: Kick has no 1440p or 4K. It is on by default. Switch it off to start on Auto like before. You can still pick another quality, or Auto, in the player settings.
+- **Chat badges** (Settings > Chat). The small badges in front of a name (broadcaster, moderator, VIP, OG, founder, subscriber, sub gifter, verified, staff and the viewer level) now show in live chat and in a video's chat replay. It is on by default. Switch it off to get the plain names back.
+- **Backup** now includes the two new switches. Backups made with older versions still restore.
+
+**Good to know**
+- Best quality uses more data, and it can buffer on a slow connection: the player stops switching quality by itself until you pick Auto. It applies the next time you open a stream or video.
+- Badges Kick sends a picture for (the streamer's own subscriber badges, the viewer level) use that picture. For the others, the app draws a small coloured icon of its own. Those icons are not Kick's artwork.
+- Up to 4 badges show in front of a name, because chat is narrow in landscape.
+- In a video's chat replay, the streamer's own subscriber badges need one extra request. The first few messages can show the plain icon until it arrives.
+- Badges depend on the way Kick sends chat messages. If Kick changes that, badges can stop showing. Chat itself keeps working.
+- Playback and chat change only in the two ways above. No new libraries and no native changes (`plugins/` and `package.json` are untouched).
+
 ## 0.11.0 (versionCode 14)
 
 **New**
