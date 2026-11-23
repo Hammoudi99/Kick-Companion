@@ -8,7 +8,7 @@ Kick Companion is a fork of [Stream Companion](https://github.com/raymon-io/stre
 
 > **Unofficial.** Not made, endorsed or sponsored by Kick or by the original author. It uses the same web endpoints as Kick's own website, and those can change without notice. "Kick" belongs to its owners.
 
-Current version: **0.12.0** (versionCode 15) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
+Current version: **0.13.0** (versionCode 16) · Android only (64-bit ARM) · MIT licence · [Changelog](CHANGELOG.md)
 
 ---
 
@@ -16,7 +16,8 @@ Current version: **0.12.0** (versionCode 15) · Android only (64-bit ARM) · MIT
 
 ### Watching
 - **Live streams and videos**, with a quality picker (Auto, 1080p, 720p...). Changing quality doesn't restart the video.
-- **Best quality**: every stream and video starts at the highest quality it offers (1080p is the most Kick has). You can switch it off in Settings to start on Auto.
+- **Starting quality**: every stream and video starts at the quality you choose in Settings: **Best** (1080p is the most Kick has), **720p**, **480p** or **360p**. If a stream doesn't have it, the closest one is used. You can switch it off to start on Auto.
+- **Mini player**: go back from a live stream or a video and it keeps playing in a small window at the bottom of the screen while you look around the app. Tap the window to open it again, or the X to close it. You can switch it off in Settings.
 - **Picture-in-picture** when you leave the app, with a headphone button in the window for background audio.
 - **Audio-only mode** (headphone icon in the player): the picture hides and the sound keeps playing in the background.
 - **Notification card** with the title, the streamer and play/pause. You can switch it off in Settings.
@@ -28,9 +29,11 @@ Current version: **0.12.0** (versionCode 15) · Android only (64-bit ARM) · MIT
 - Live chat reconnects by itself, and shows the reason if it can't connect.
 - Emotes from 7TV, BetterTTV and FrankerFaceZ.
 - **Chat badges** (subscriber, moderator, VIP, OG, founder and more) in front of the names, in live chat and in a video's chat replay. You can switch them off in Settings.
+- **Chat filter**: hide messages from people you choose, or that contain words you choose, in live chat and in a video's chat replay. You can switch it off in Settings.
+- **Hide commands** and **Hide links**: two more switches in Settings, both off by default. One hides messages that start with `!` and a word (like `!lurk`), the other hides messages that contain a web address. They work in live chat and in a video's chat replay.
 
 ### Browsing
-- **Following**: the streamers you follow. Order them **Live first** (default), **A-Z** or **Added**, and **pin** favourites to the top.
+- **Following**: the streamers you follow. Order them **Live first** (default), **A-Z** or **Added**, and **pin** favourites to the top. A switch in Settings (**Only show live streamers**, off by default) shows only the ones who are live right now.
 - **Continue watching**: a row of videos you started but didn't finish, with a progress bar and the time left.
 - **Live**: Kick categories with viewer counts and tags. Tap one to see its live streams.
 - **Followed categories**: tap the heart on a category (in the list or on its page) to follow it. Your followed categories show in a row at the top of the list.
@@ -48,11 +51,12 @@ Current version: **0.12.0** (versionCode 15) · Android only (64-bit ARM) · MIT
 - A **banner** at the top of Following tells you when alerts are switched off, or when Android doesn't allow notifications. It has a button that opens Settings, and you can close it.
 
 ### Backup and updates
-- **Back up your data** (Settings > Backup) turns your follows, pins, followed categories, saved videos, resume spots and settings into text you can keep in Notes, an email or a chat. **Restore** adds back whatever the phone is missing and never replaces or removes anything. Restart the app afterwards.
+- **Back up your data** (Settings > Backup) turns your follows, pins, followed categories, saved videos, resume spots, chat filter and settings into text you can keep in Notes, an email or a chat. **Restore** adds back whatever the phone is missing and never replaces or removes anything. Restart the app afterwards.
 - **Check for updates** (Settings > Updates) looks on GitHub for a newer version when you tap it. It never downloads or installs anything by itself.
 
 ### Look
 - Themes: **AMOLED Black** (default), **Dark**, **Light** and **Material You** (Android 12 and newer).
+- **Accent colour** (off by default): use **Blue**, **Purple**, **Pink**, **Orange** or **Teal** instead of Kick green on the AMOLED Black, Dark and Light themes.
 - A short launch animation, a new icon, a Settings screen (gear icon on Home) and an About screen that credits the original author and Claude.
 
 ### Smaller, Android only
@@ -92,7 +96,12 @@ On a phone, install Node.js in [Termux](https://termux.dev) (`pkg install nodejs
 ## Good to know
 
 - **Live alerts are best effort.** Android decides when background checks run. Battery saver, Doze and some phone makers' battery managers can delay or skip them. Setting Battery to Unrestricted helps. Force-stopping the app stops the checks until you open it again. There is no push server, so an alert is never instant.
-- **Best quality uses more data.** It can buffer on a slow connection, and the player stops switching quality by itself until you pick Auto. Kick has no 1440p or 4K, so 1080p is the top.
+- **Starting quality uses more data.** The higher choices can buffer on a slow connection, and the player stops switching quality by itself until you pick Auto. Kick has no 1440p or 4K, so 1080p is the top.
+- **The chat filter only hides messages on your screen.** A word also matches inside other words (a filter for "ass" hides "class" too). You can add up to 100 words and 100 people. Your lists stay on the phone and are part of the backup.
+- **Hide links and Hide commands are simple.** Hide links only catches web addresses that start with http, https or www. Hide commands only catches messages that start with `!` and a word. Neither needs the chat filter switch.
+- **The mini player is a small, simple window.** It starts the stream again at about 360p to save data, shows no chat, and pauses when you leave the app (picture-in-picture still works from the full player, as before). It sits at the bottom of the screen and can cover a button there: close it with the X.
+- **Only show live streamers also hides pinned streamers who are offline.** Switch it off to see everyone again. Your follow list is never changed.
+- **The accent colour doesn't change Material You** (it uses your wallpaper colours) **or the video controls.**
 - **Badges are partly the app's own.** Badges Kick sends a picture for (the streamer's own subscriber badges, the viewer level) use that picture. For the others, the app draws a small coloured icon of its own.
 - **Language chips depend on Kick.** They only appear when Kick says which language the streams use, and they only filter the 20 streams loaded on that page.
 - **Kick can change its endpoints at any time.** If it does, parts of the app can stop working until it is updated.
@@ -107,7 +116,7 @@ On a phone, install Node.js in [Termux](https://termux.dev) (`pkg install nodejs
 - Small Expo config plugins in `plugins/` patch the generated Android project: picture-in-picture, the headphone action, background keep-alive, media volume stream, notification permission, display cutout, black window background, arm64-only packaging, and Flipper removal (needed by the `react-native-tvos` base).
 - `.npmrc` sets `legacy-peer-deps=true`. `eas.json` has a `preview` profile that makes an installable APK.
 - The original's TV navigation code is still in the project, because the player, chat and profile screens use it.
-- **Check for updates** reads the releases of this repository. Tag each release with its version, like `v0.12.0`, and attach the APK.
+- **Check for updates** reads the releases of this repository. Tag each release with its version, like `v0.13.0`, and attach the APK.
 
 ```
 App.tsx                 navigation, About screen, launch and exit handling
@@ -115,8 +124,9 @@ theme.ts                the colour themes
 kick/                   screens: home, profile, search, settings, live and video players
 kick/services/          Kick API, chat, emotes, saved videos, Continue watching, following order and pins,
                         followed categories, live alerts, backup, update check, settings store,
-                        best quality, chat badges
-kick/components/        shared pieces: player settings panel, slider, launch animation, chat badges
+                        starting quality, chat badges, chat filter, mini player
+kick/components/        shared pieces: player settings panel, slider, launch animation, chat badges,
+                        mini player window
 plugins/                Expo config plugins that patch the generated Android project
 assets/                 icons
 ```
