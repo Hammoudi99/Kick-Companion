@@ -4,6 +4,39 @@ Every version of this fork, newest first. The starting point is the original app
 
 Each version has its own `versionCode`, so a new APK installs over the old one.
 
+## 0.13.0 (versionCode 16)
+
+Six new things. Each one has its own on/off switch in Settings, so you decide what you use.
+
+**If the update won't install**
+If Android says **App not installed**, the new APK is usually signed with a different key than the app on your phone. The file itself is fine. To keep your data:
+1. In the old app, go to Settings > BACKUP > **Back up your data**. Share it to a place you can paste from later (Notes, an email to yourself) and check that it arrived. It saves your follows, pins, followed categories, saved videos, resume spots, chat filter and settings.
+2. Uninstall the old app.
+3. Install the new APK.
+4. In the new app, go to Settings > BACKUP > **Restore from a backup** and paste the text.
+
+If you build the app yourself, always log in to the same Expo account. Then every new build is signed with the same key and installs over the old one.
+
+**New**
+- **Starting quality** (Settings > Playback). Choose where streams and videos start: **Best**, **720p**, **480p** or **360p**. If a stream doesn't have it, the closest one is used. On by default with Best chosen, so nothing changes until you pick another one. Switch it off to start on Auto.
+- **Mini player** (Settings > Playback). Go back from a live stream or a video and it keeps playing in a small window at the bottom of the screen. Tap the window to open it again, or the X to close it. A video carries on from where it was. On by default. Switch it off and going back stops playback, as before.
+- **Chat filter** (Settings > Chat). Hide chat messages from people you choose, or that contain words you choose, under "Words and people". Capitals don't matter, and an emote counts as its name. On by default, but with nothing added it hides nothing. Your lists are kept if you switch it off.
+- **Hide commands** and **Hide links** (Settings > Chat). Both off by default. One hides messages that start with `!` and a word (like `!lurk`). The other hides messages that contain a web address. They don't need the chat filter switch.
+- **Accent colour** (Settings > Appearance). Off by default, which keeps Kick green. Switch it on to pick **Blue**, **Purple**, **Pink**, **Orange** or **Teal** for buttons, highlights and icons, on the AMOLED Black, Dark and Light themes.
+- **Only show live streamers** (Settings > Home). Off by default. When on, the Following tab shows only the streamers who are live right now, with a short line saying so.
+- **Backup** now includes all of these, with your word and people lists. Backups made with older versions still restore.
+
+**Good to know**
+- The chat filter, Hide commands, Hide links and Starting quality apply the next time you open a stream or video. The accent colour shows at once, and Only show live streamers when you go back to Home.
+- The higher starting qualities use more data and can buffer on a slow connection. The player stops switching quality by itself until you pick Auto.
+- The mini player starts the stream again in the small window, at about 360p to save data, with no chat. It pauses when you leave the app (picture-in-picture still works from the full player). It can cover a button at the bottom of a screen: close it with the X.
+- A filtered word also matches inside other words: a filter for "ass" hides "class" too. You can add up to 100 words and 100 people. For a person, type the name the way it shows in chat.
+- Hide links only catches addresses that start with http, https or www.
+- The filters only hide messages on your screen. They change nothing for anyone else.
+- The accent colour doesn't change Material You (it uses your wallpaper colours) or the video controls.
+- Only show live streamers also hides pinned streamers who are offline. Your follow list isn't changed: switch it off and everyone is back.
+- Playback and chat change only in the ways above. No new libraries and no native changes (`plugins/` and `package.json` are untouched).
+
 ## 0.12.0 (versionCode 15)
 
 **New**
